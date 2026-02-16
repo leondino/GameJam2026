@@ -28,7 +28,6 @@ public class playerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Walking();
-        Debug.Log(movementVector);
     }
 
     // Handle camera rotation in Update to ensure it happens every frame, not just on physics updates
