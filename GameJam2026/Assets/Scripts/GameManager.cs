@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         playerInput = player.GetComponent<PlayerInput>();
+        playerInput.SwitchCurrentActionMap(gameplayActionMap);
 
         // Lock cursor to middle of the screen and hide it at start
         SetCursor(CursorType.Hand);
@@ -61,6 +62,7 @@ public class GameManager : MonoBehaviour
     {
         if (context.started)
         {
+            Debug.Log("why i run twice?");
             // Toggle menu state
             menuOpen = !menuOpen;
 
