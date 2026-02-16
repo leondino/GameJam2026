@@ -28,6 +28,7 @@ public class playerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Walking();
+        Debug.Log(movementVector);
     }
 
     // Handle camera rotation in Update to ensure it happens every frame, not just on physics updates
@@ -42,7 +43,10 @@ public class playerMovement : MonoBehaviour
     /// </summary>
     private void Walking() 
     {
-        rBody.MovePosition(rBody.position + transform.forward * new Vector3(movementVector.x, 0, movementVector.y).magnitude * movementSpeed * Time.fixedDeltaTime);
+        // Move relative to the player's forward and right directions
+        movementVector.Normalize();
+        Vector3 moveDir = (transform.forward * movementVector.y + transform.right * movementVector.x);
+        rBody.MovePosition(rBody.position + moveDir * movementSpeed * Time.fixedDeltaTime);
         // Rotate the player body to match the yaw of the camera (but not pitch)
         rBody.MoveRotation(Quaternion.Euler(0f, yaw, 0f));
     }
