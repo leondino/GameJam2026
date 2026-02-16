@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+
     private PlayerInput playerInput;
     [SerializeField]
     private GameObject player;
@@ -14,9 +16,17 @@ public class GameManager : MonoBehaviour
 
     private bool menuOpen = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
         playerInput = player.GetComponent<PlayerInput>();
 
         // Lock cursor to middle of the screen and hide it at start
