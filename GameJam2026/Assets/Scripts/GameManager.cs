@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     private PlayerInput playerInput;
     [SerializeField]
     private GameObject player;
+    private CustomerSpawner customerSpawner;
 
     [SerializeField]
     private string gameplayActionMap = "Player";
@@ -46,16 +47,17 @@ public class GameManager : MonoBehaviour
         playerInput = player.GetComponent<PlayerInput>();
         playerInput.SwitchCurrentActionMap(gameplayActionMap);
 
+        customerSpawner = GetComponent<CustomerSpawner>();
+
         // Lock cursor to middle of the screen and hide it at start
         SetCursor(CursorType.Hand);
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        // Toggle cursor lock with Escape so user can release during development
-
+        customerSpawner.SpawnCustomer();
     }
 
     public void OnSwitchMenu(InputAction.CallbackContext context)
