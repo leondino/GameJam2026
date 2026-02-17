@@ -49,24 +49,24 @@ public class WalkObjective : MonoBehaviour
         {
             if (newQueueMember)
             {
-                WalkToPoint(NPCManager.queuePoints[0]);
+                WalkToPoint(NPCManager.queuePoints[4]);
                 newQueueMember = false;
             }
-            else
+            else if (!isInQueue) 
+            { 
+                isInQueue = true;
+                NPCManager.AddToQueue(gameObject);
+                npcBody.transform.LookAt(NPCManager.queuePoints[0]);
+            }
+            else 
             {
-                if (!isInQueue) 
-                { 
-                    isInQueue = true;
-                    NPCManager.queueNPCs.Enqueue(gameObject);
-                    npcBody.transform.LookAt(NPCManager.queuePoints[4]);
-                }
                 targetPoint = null;
                 animator.SetBool("isWalking", false);
             }
         }
     }
 
-    private void WalkToPoint(Transform point)
+    public void WalkToPoint(Transform point)
     {
         // Start moving towards the given point; movement and rotation are handled in FixedUpdate
         targetPoint = point;

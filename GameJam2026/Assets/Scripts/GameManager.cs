@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     private PlayerInput playerInput;
     [SerializeField]
-    private GameObject player;
+    public GameObject player;
     private CustomerSpawner customerSpawner;
     [HideInInspector]
     public ActiveNPCManager activeNPCManager;
@@ -60,7 +60,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        customerSpawner.SpawnCustomer();
+        if (activeNPCManager.queueNPCs.Count < activeNPCManager.maxQueueLength)
+            customerSpawner.SpawnCustomer();
     }
 
     public void AddActiveNPC(GameObject npc)
