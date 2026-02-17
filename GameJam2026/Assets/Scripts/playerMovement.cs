@@ -81,7 +81,6 @@ public class playerMovement : MonoBehaviour
         Vector3 cameraPosition = rBody.position;
         cameraPosition.y += cameraHeightOffset;
         playerCam.transform.position = cameraPosition;
-        Debug.Log("Camera y position updated to: " + cameraPosition.y + " : y ofset = " + cameraHeightOffset);
     }
 
     public void OnMove(InputAction.CallbackContext context)

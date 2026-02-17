@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject player;
     private CustomerSpawner customerSpawner;
+    public ActiveNPCManager activeNPCManager;
 
     [SerializeField]
     private string gameplayActionMap = "Player";
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour
         playerInput.SwitchCurrentActionMap(gameplayActionMap);
 
         customerSpawner = GetComponent<CustomerSpawner>();
+        activeNPCManager = GetComponent<ActiveNPCManager>();
 
         // Lock cursor to middle of the screen and hide it at start
         SetCursor(CursorType.Hand);
@@ -58,6 +60,11 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         customerSpawner.SpawnCustomer();
+    }
+
+    public void AddActiveNPC(GameObject npc)
+    {
+        activeNPCManager.activeNPCs.Enqueue(npc);
     }
 
     public void OnSwitchMenu(InputAction.CallbackContext context)

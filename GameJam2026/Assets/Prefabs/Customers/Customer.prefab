@@ -2194,6 +2194,8 @@ GameObject:
   - component: {fileID: 5915935159344612480}
   - component: {fileID: 4572403855970727485}
   - component: {fileID: 5348279527879927015}
+  - component: {fileID: -436435057281771742}
+  - component: {fileID: -4442758045139983306}
   m_Layer: 0
   m_Name: Customer
   m_TagString: Untagged
@@ -2259,6 +2261,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecde41231e1924240a64c4c84565eddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  walkSpeed: 1
+--- !u!54 &-436435057281771742
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6909318593191939354}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 84
+  m_CollisionDetection: 0
+--- !u!136 &-4442758045139983306
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6909318593191939354}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.16644233
+  m_Height: 1.4889187
+  m_Direction: 1
+  m_Center: {x: -0.0021992922, y: 0.7527959, z: -0.017665163}
 --- !u!1 &6961797313153527629
 GameObject:
   m_ObjectHideFlags: 0
