@@ -6,7 +6,10 @@ public class ActiveNPCManager : MonoBehaviour
 {
     [SerializeField]
     public Transform firstWalkPoint;
+    public Transform[] queuePoints = new Transform[5];
     public Queue<GameObject> activeNPCs = new Queue<GameObject>();
+    public Queue<GameObject> queueNPCs = new Queue<GameObject>();
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

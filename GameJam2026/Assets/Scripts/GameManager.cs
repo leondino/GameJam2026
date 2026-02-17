@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject player;
     private CustomerSpawner customerSpawner;
+    [HideInInspector]
     public ActiveNPCManager activeNPCManager;
 
     [SerializeField]
