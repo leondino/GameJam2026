@@ -12,12 +12,15 @@ public class playerMovement : MonoBehaviour
     private float yaw;
     private Rigidbody rBody;
     private Camera playerCam;
+    private float cameraHeightOffset;// Adjust this value to set how high the camera is above the player's position
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         rBody = GetComponent<Rigidbody>();
         playerCam = Camera.main;
+        cameraHeightOffset = playerCam.transform.position.y - rBody.position.y;
+
         // Initialize pitch and yaw from camera rotation (convert pitch to -180..180 range)
         yaw = playerCam.transform.eulerAngles.y;
         pitch = playerCam.transform.eulerAngles.x;
@@ -33,7 +36,7 @@ public class playerMovement : MonoBehaviour
     // Handle camera rotation in Update to ensure it happens every frame, not just on physics updates
     private void Update()
     {
-        playerCam.transform.position = new Vector3(rBody.transform.position.x, playerCam.transform.position.y, rBody.position.z);
+        CameraPosition();
         CameraRotation();
     }
 
@@ -68,6 +71,17 @@ public class playerMovement : MonoBehaviour
 
         // Rotate the player body to match the yaw of the camera (but not pitch)
         rBody.MoveRotation(Quaternion.Euler(0f, yaw, 0f));
+    }
+
+    /// <summary>
+    /// Sets camera position at players position with a fixed height offset.
+    /// </summary>
+    private void CameraPosition()
+    {
+        Vector3 cameraPosition = rBody.position;
+        cameraPosition.y += cameraHeightOffset;
+        playerCam.transform.position = cameraPosition;
+        Debug.Log("Camera y position updated to: " + cameraPosition.y + " : y ofset = " + cameraHeightOffset);
     }
 
     public void OnMove(InputAction.CallbackContext context)
