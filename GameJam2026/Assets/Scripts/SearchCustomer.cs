@@ -14,9 +14,11 @@ public class SearchCustomer : MonoBehaviour
     {        
             
     }
-    public void StartSearch(GameObject customer)
+    public void StartSearch(GameObject npc)
     {
-        customer.GetComponent<WalkObjective>().WalkToPoint(GameManager.Instance.activeNPCManager.searchPoint);
+        WalkObjective customer = npc.GetComponent<WalkObjective>();
+        customer.WalkToPoint(GameManager.Instance.activeNPCManager.searchPoint);
+        customer.queueComplete = true;
     }
 
     private void SearchComplete()

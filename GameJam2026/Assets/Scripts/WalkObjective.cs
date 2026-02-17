@@ -5,7 +5,8 @@ public class WalkObjective : MonoBehaviour
     [SerializeField]
     private float walkSpeed = 1f;
     private bool isInQueue = false;
-    private bool queueComplete = false;
+    [HideInInspector]
+    public bool queueComplete = false;
     private bool newQueueMember = true;
     private Rigidbody npcBody;
     private Transform targetPoint;
@@ -60,6 +61,8 @@ public class WalkObjective : MonoBehaviour
             }
             else 
             {
+                if (queueComplete) 
+                    animator.SetBool("isSearched", true);
                 targetPoint = null;
                 animator.SetBool("isWalking", false);
             }
