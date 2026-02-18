@@ -41,7 +41,8 @@ public class CustomerSpawner : MonoBehaviour
                 return;
             }
 
-            Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
+            GameObject newNpc = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
+            GameManager.Instance.activeNPCManager.activeNPCs.Enqueue(newNpc);
         }
     }
 }

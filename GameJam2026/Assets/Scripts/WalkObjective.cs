@@ -7,10 +7,14 @@ public class WalkObjective : MonoBehaviour
     private bool isInQueue = false;
     [HideInInspector]
     public bool queueComplete = false;
+    [HideInInspector]
+    public bool goesDancing = false;
     private bool newQueueMember = true;
     private Rigidbody npcBody;
     private Transform targetPoint;
     private float stopDistance = 0.1f;
+    [HideInInspector]
+    public Transform dancefloorSpot; // Assigned when sent to dancefloor, used to track which spot the NPC is occupying
 
     private ActiveNPCManager NPCManager;
     private Animator animator;
@@ -53,16 +57,34 @@ public class WalkObjective : MonoBehaviour
                 WalkToPoint(NPCManager.queuePoints[4]);
                 newQueueMember = false;
             }
-            else if (!isInQueue) 
+            else if (!isInQueue &! goesDancing) 
             { 
                 isInQueue = true;
                 NPCManager.AddToQueue(gameObject);
                 npcBody.transform.LookAt(NPCManager.queuePoints[0]);
             }
-            else 
+            else if (goesDancing && isInQueue)
             {
-                if (queueComplete) 
+                isInQueue = false;
+                dancefloorSpot = NPCManager.GetAvailableDancefloorSpot();
+                WalkToPoint(dancefloorSpot);
+            }
+            else
+            {
+                if (queueComplete & !goesDancing)
+                {
                     animator.SetBool("isSearched", true);
+                }
+                if (goesDancing)
+                {
+                    animator.SetBool("isDancing", true);
+                    npcBody.useGravity = false; // Disable gravity to allow for smooth dancing movement without physics interference
+                    transform.position = (new Vector3(npcBody.position.x, npcBody.position.y+0.2f, npcBody.position.z)); //ofset for dance animation to prevent clipping with the floor
+                    // Give the dancing NPC a random Y rotation so they face a random direction on the dancefloor
+                    float randomDanceY = UnityEngine.Random.Range(0f, 360f);
+                    npcBody.MoveRotation(Quaternion.Euler(0f, randomDanceY, 0f));
+                }
+
                 targetPoint = null;
                 animator.SetBool("isWalking", false);
             }
@@ -74,5 +96,6 @@ public class WalkObjective : MonoBehaviour
         // Start moving towards the given point; movement and rotation are handled in FixedUpdate
         targetPoint = point;
         animator.SetBool("isWalking", true);
+        animator.SetBool("isSearched", false);
     }
 }

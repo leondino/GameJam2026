@@ -73,7 +73,6 @@ public class GameManager : MonoBehaviour
     {
         if (context.started)
         {
-            Debug.Log("why i run twice?");
             // Toggle menu state
             menuOpen = !menuOpen;
 
