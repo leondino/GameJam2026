@@ -450,6 +450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
+  myContraband: {fileID: 0}
 --- !u!1 &593892793317169531
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,6 +616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
+  myContraband: {fileID: 0}
 --- !u!1 &1418270141908920326
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,6 +860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
+  myContraband: {fileID: 0}
 --- !u!1 &1640396857985736255
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,6 +1577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
+  myContraband: {fileID: 0}
 --- !u!1 &2613660246876934512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,6 +1647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
+  myContraband: {fileID: 0}
 --- !u!1 &2689325782197910556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,6 +1822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
+  myContraband: {fileID: 0}
 --- !u!1 &3628943176046267541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1918,6 +1924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
+  myContraband: {fileID: 0}
 --- !u!1 &3657310593511902457
 GameObject:
   m_ObjectHideFlags: 0
@@ -2181,6 +2188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
+  myContraband: {fileID: 0}
 --- !u!1 &5315808890551935785
 GameObject:
   m_ObjectHideFlags: 0
@@ -2282,6 +2290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
+  myContraband: {fileID: 0}
 --- !u!1 &5543626738094365929
 GameObject:
   m_ObjectHideFlags: 0
@@ -2478,6 +2487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
+  myContraband: {fileID: 0}
 --- !u!1 &5883078259640828268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2642,6 +2652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
+  myContraband: {fileID: 0}
 --- !u!1 &6180955141066094345
 GameObject:
   m_ObjectHideFlags: 0
@@ -2775,6 +2786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
+  myContraband: {fileID: 0}
 --- !u!1 &6442272388452478254
 GameObject:
   m_ObjectHideFlags: 0
@@ -2844,6 +2856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
+  myContraband: {fileID: 0}
 --- !u!1 &6486779210992803073
 GameObject:
   m_ObjectHideFlags: 0
@@ -3095,7 +3108,7 @@ GameObject:
   - component: {fileID: -436435057281771742}
   - component: {fileID: -4442758045139983306}
   m_Layer: 0
-  m_Name: Customer
+  m_Name: BaseCustomer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3212,6 +3225,10 @@ MonoBehaviour:
   - {fileID: 2154484936382280257}
   - {fileID: 4421463221599191139}
   - {fileID: 5841553976279655061}
+  possibleContrabandItems:
+  - {fileID: 11400000, guid: 111daa903c3e5274e86907752bcb4dfe, type: 2}
+  - {fileID: 11400000, guid: dad60616160d75f4ebe54ca64395fe94, type: 2}
+  - {fileID: 11400000, guid: d2f694a7013fd4445b029aa31409958a, type: 2}
 --- !u!54 &-436435057281771742
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3523,6 +3540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
+  myContraband: {fileID: 0}
 --- !u!1 &8008658154354567758
 GameObject:
   m_ObjectHideFlags: 0
@@ -3592,6 +3610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
+  myContraband: {fileID: 0}
 --- !u!1 &8258308389944451159
 GameObject:
   m_ObjectHideFlags: 0
@@ -4024,6 +4043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
+  myContraband: {fileID: 0}
 --- !u!1 &9050346667967805386
 GameObject:
   m_ObjectHideFlags: 0
@@ -4093,6 +4113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
+  myContraband: {fileID: 0}
 --- !u!1001 &4736123773462797623
 PrefabInstance:
   m_ObjectHideFlags: 0

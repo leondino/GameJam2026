@@ -4,6 +4,7 @@ public class SearchablePart : Interactable
 {
     [HideInInspector]
     public bool hasContraband = false;
+    public ContrabandData myContraband;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,7 +19,7 @@ public class SearchablePart : Interactable
     public override void Interact()
     {
         base.Interact();
-        if (hasContraband) {Debug.Log($"Contraband found in {name}!");}
+        if (hasContraband) {Debug.Log($"{myContraband.name} found in {name}!");}
         else {Debug.Log($"No contraband found in {name}."); }
     }
 }

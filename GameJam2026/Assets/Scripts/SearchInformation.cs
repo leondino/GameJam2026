@@ -14,7 +14,8 @@ public class SearchInformation : MonoBehaviour
     private float contrabandChance = 0.5f;
     [SerializeField]
     private List<SearchablePart> bodyParts = new List<SearchablePart>();
-
+    [SerializeField]
+    private List<ContrabandData> possibleContrabandItems = new List<ContrabandData>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,6 +36,7 @@ public class SearchInformation : MonoBehaviour
             if (Random.value < (contrabandChance/TOTAL_BODY_PARTS) && currentContrabandCount < maxContrabandCount)
             {
                 part.hasContraband = true;
+                part.myContraband = possibleContrabandItems[Random.Range(0, possibleContrabandItems.Count)];
                 currentContrabandCount++;
             }
         }
