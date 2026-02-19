@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     private Texture2D cursorDefault;
     private Vector2 cursorHotspot = new Vector2(16f, 16f);
 
+    public GameObject SearchCompleteUI;
+
     private PlayerInput playerInput;
     [SerializeField]
     public GameObject player;

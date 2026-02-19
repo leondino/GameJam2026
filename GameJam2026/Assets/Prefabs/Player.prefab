@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   movementSpeed: 4
-  rotateSpeed: 2.5
+  rotateSpeed: 5
   maxPitch: 70
 --- !u!114 &2984680272269254669
 MonoBehaviour:
@@ -319,13 +319,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   interactCrosshair: {fileID: 0}
-  maxDistance: 1.5
+  maxDistance: 2
   interactImage: {fileID: 21300000, guid: c5ae0ebe5b096ce4ca8e4c9c63833eb5, type: 3}
   baseImage: {fileID: 0}
   fingerImage: {fileID: 21300000, guid: 3067baa1f5b4a76408bed985da1bdc27, type: 3}
   gloveImage: {fileID: 21300000, guid: 1e7a98fa720cd3f4fb962fe68f912259, type: 3}
   gloveFingerImage: {fileID: 21300000, guid: 3597277026b5f4541bb0abc169560644, type: 3}
   interactImageSize: {x: 40, y: 40}
+  interactPopSize: {x: 50, y: 50}
 --- !u!54 &6553436561706056805
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -335,8 +336,8 @@ Rigidbody:
   m_GameObject: {fileID: 3376518572674154565}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 20
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -349,7 +350,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0

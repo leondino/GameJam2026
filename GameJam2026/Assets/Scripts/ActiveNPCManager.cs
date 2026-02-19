@@ -62,6 +62,7 @@ public class ActiveNPCManager : MonoBehaviour
 
     public void SendToDancefloor(WalkObjective customer)
     {
+        GameManager.Instance.SearchCompleteUI.SetActive(false);
         SendToSearch(); //Next in line is sent to searchpoint.
         if (customer != null)
         {

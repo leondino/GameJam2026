@@ -71,10 +71,12 @@ public class WalkObjective : MonoBehaviour
             }
             else
             {
+                // Actual start of the search.
                 if (queueComplete & !goesDancing)
                 {
                     animator.SetBool("isSearched", true);
                     GetComponent<SearchInformation>().GenerateContraband();
+                    GameManager.Instance.SearchCompleteUI.SetActive(true);
                 }
                 if (goesDancing)
                 {
