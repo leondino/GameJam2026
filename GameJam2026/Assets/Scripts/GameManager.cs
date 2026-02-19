@@ -10,15 +10,6 @@ public class GameManager : MonoBehaviour
     [Header("Cursors")]
     [SerializeField]
     private Texture2D cursorDefault;
-    [SerializeField]
-    private Texture2D cursorHand;
-    [SerializeField]
-    private Texture2D cursorHandPoint;
-    [SerializeField]
-    private Texture2D cursorGlove;
-    [SerializeField]
-    private Texture2D cursorGlovePoint;
-    [SerializeField]
     private Vector2 cursorHotspot = new Vector2(16f, 16f);
 
     private PlayerInput playerInput;
@@ -99,7 +90,6 @@ public class GameManager : MonoBehaviour
                     Debug.Log("A menu is closed");
                 }
 
-                SetCursor(CursorType.Hand);
                 UnityEngine.Cursor.lockState = CursorLockMode.Locked;
                 UnityEngine.Cursor.visible = false;
 
@@ -119,14 +109,6 @@ public class GameManager : MonoBehaviour
         switch (type)
         {
             case CursorType.Default: tex = cursorDefault; 
-                break;
-            case CursorType.Hand: tex = cursorHand; 
-                break;
-            case CursorType.HandPoint: tex = cursorHandPoint; 
-                break;
-            case CursorType.Glove: tex = cursorGlove; 
-                break;
-            case CursorType.GlovePoint: tex = cursorGlovePoint;
                 break;
         }
 

@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 8926671412959268635}
   - component: {fileID: 3771535528416265203}
   - component: {fileID: 5896280850264173447}
-  - component: {fileID: 741298855019372032}
   - component: {fileID: 4767264505294291230}
   - component: {fileID: 8831879258223892328}
   - component: {fileID: 2984680272269254669}
+  - component: {fileID: 847526196873561965}
   - component: {fileID: 6553436561706056805}
+  - component: {fileID: 741298855019372032}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -95,29 +96,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &741298855019372032
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3376518572674154565}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4767264505294291230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,6 +294,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   currentCustomer: {fileID: 0}
+--- !u!114 &847526196873561965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3376518572674154565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda23146cea68144bb88a44d940ab50c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  interactCrosshair: {fileID: 0}
+  interactImage: {fileID: 0}
+  baseImage: {fileID: 0}
+  fingerImage: {fileID: 0}
 --- !u!54 &6553436561706056805
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -343,3 +337,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!136 &741298855019372032
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3376518572674154565}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
