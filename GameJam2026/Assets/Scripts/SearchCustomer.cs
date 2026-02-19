@@ -19,6 +19,15 @@ public class SearchCustomer : MonoBehaviour
             NPCManager.SendToSearch();
         }
     }
+    /// <summary>
+    /// 
+    /// Initiates the search process for the specified customer by generating contraband information and directing the
+    /// customer to a designated search point.
+    /// </summary>
+    /// <remarks>This method sets the current customer and marks the search queue as complete once the
+    /// customer reaches the search point.</remarks>
+    /// <param name="customer">The GameObject representing the customer for whom the search is initiated. This object must have a
+    /// SearchInformation component to generate contraband.</param>
     public void StartSearch(GameObject customer)
     {
         currentCustomer = customer.GetComponent<WalkObjective>();

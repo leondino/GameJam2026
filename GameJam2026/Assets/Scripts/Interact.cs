@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Interact : MonoBehaviour
@@ -7,12 +9,18 @@ public class Interact : MonoBehaviour
     [SerializeField]
     private Image interactCrosshair;
     [SerializeField]
-    private float maxDistance = 5f;
+    private float maxDistance = 1f;
     [SerializeField]
     private Sprite interactImage, baseImage, fingerImage, gloveImage, gloveFingerImage;
+
+    private Interactable currentInteractable;
     [SerializeField]
-    private Vector2 interactImageSize = new Vector2(48f, 48f);
+    private Vector2 interactImageSize = new Vector2(40f, 40f);
+    [SerializeField]
+    private Vector2 interactPopSize = new Vector2(50f, 50f);
     private Vector2 baseSize;
+
+    private bool interactImageActive = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,21 +47,49 @@ public class Interact : MonoBehaviour
 
             if (col.CompareTag("Interactable"))
             {
-                interactCrosshair.sprite = interactImage;
-                interactCrosshair.rectTransform.sizeDelta = interactImageSize;
-                Debug.Log($"I'm looking at body part '{col.name}' (parent NPC '{col.transform.parent?.name ?? "(no parent)"}')");
+                if (!interactImageActive)
+                {
+                    interactCrosshair.sprite = interactImage;
+                    interactCrosshair.rectTransform.sizeDelta = interactImageSize;
+                    interactImageActive = true;
+                }
+                currentInteractable = col.GetComponent<Interactable>();
+                //Debug.Log($"I'm looking at body part '{col.name}' (parent NPC '{col.transform.parent?.name ?? "(no parent)"}')");
                 return;
             }
-
-            // Hit something but it's not interactable
-            interactCrosshair.sprite = baseImage;
-            interactCrosshair.rectTransform.sizeDelta = baseSize;
-            return;
         }
 
-        // Nothing hit
+        // Nothing interactable hit
+        interactImageActive = false;
         interactCrosshair.sprite = baseImage;
         interactCrosshair.rectTransform.sizeDelta = baseSize;
-        Debug.Log("I'm looking at nothing!");
+        currentInteractable = null;
+    }
+
+    public void InteractWith(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (currentInteractable != null)
+            {
+                StartCoroutine(PopInteractable());
+                currentInteractable.Interact();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Temporarily increases the size of the interact crosshair to provide visual feedback when an interactable element
+    /// is present.
+    /// </summary>
+    /// <remarks>Use this method to visually indicate to the user that an interactable object is available.
+    /// The crosshair size change is brief and intended to draw attention without interrupting gameplay.</remarks>
+    /// <returns>An enumerator that yields after 0.1 seconds, allowing the crosshair to revert to its original size.</returns>
+    private IEnumerator PopInteractable()
+    {
+        Debug.Log("Popping interactable crosshair");
+        interactCrosshair.rectTransform.sizeDelta = interactPopSize;
+        yield return new WaitForSeconds(0.1f);
+        interactCrosshair.rectTransform.sizeDelta = interactImageSize;
     }
 }

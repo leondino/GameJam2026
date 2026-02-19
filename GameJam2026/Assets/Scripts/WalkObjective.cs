@@ -74,6 +74,7 @@ public class WalkObjective : MonoBehaviour
                 if (queueComplete & !goesDancing)
                 {
                     animator.SetBool("isSearched", true);
+                    GetComponent<SearchInformation>().GenerateContraband();
                 }
                 if (goesDancing)
                 {
