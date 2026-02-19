@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ContrabandItem
   itemName: Smelly Plant
   value: 15
+  rarity: 2
   icon: {fileID: 0}
   modelPrefab: {fileID: 0}

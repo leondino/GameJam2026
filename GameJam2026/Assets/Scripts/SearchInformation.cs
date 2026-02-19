@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class SearchInformation : MonoBehaviour
@@ -28,17 +29,43 @@ public class SearchInformation : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Randomly assigns contraband items to body parts, subject to specified chance and maximum count constraints.
+    /// </summary>
     public void GenerateContraband()
     {
+        //Switch to interactable tag for all body parts
         foreach (var part in bodyParts)
         {
             part.gameObject.tag = "Interactable";
-            if (Random.value < (contrabandChance/TOTAL_BODY_PARTS) && currentContrabandCount < maxContrabandCount)
+        }
+
+        //Randomly assign contraband to body parts based on the contrabandChance and maxContrabandCount
+        float randomValue = Random.value;
+        while (randomValue < contrabandChance && currentContrabandCount < maxContrabandCount)
+        {
+            SearchablePart part = bodyParts[Random.Range(0, bodyParts.Count)];
+            part.hasContraband = true;
+            //Assign a random contraband item to the part, with a rarity that is less than or equal to a random max rarity (between 1 and 3)
+            int maxRarity = Random.Range(1, 4);
+            ContrabandData contraband = possibleContrabandItems[Random.Range(0, possibleContrabandItems.Count)];
+            while (contraband.rarity > maxRarity)
             {
-                part.hasContraband = true;
-                part.myContraband = possibleContrabandItems[Random.Range(0, possibleContrabandItems.Count)];
-                currentContrabandCount++;
+                contraband = possibleContrabandItems[Random.Range(0, possibleContrabandItems.Count)];
             }
+            Debug.Log($"Assigned contraband {contraband.itemName} with rarity {contraband.rarity} to part {part.name}");
+            part.myContraband = contraband;
+            randomValue = Random.value;
+            currentContrabandCount++;
+        }
+        if (currentContrabandCount == 0) Debug.Log("No contraband generated, try increasing the contraband chance or max contraband count.");
+    }
+
+    public void ResetBodyInteractablity()
+    {
+        foreach (var part in bodyParts)
+        {
+            part.gameObject.tag = "Untagged";
         }
     }
 }

@@ -68,6 +68,7 @@ public class ActiveNPCManager : MonoBehaviour
         {
             customer.WalkToPoint(dancefloorEntryPoint);
             customer.goesDancing = true;
+            customer.GetComponent<SearchInformation>().ResetBodyInteractablity();
         }
     }
 

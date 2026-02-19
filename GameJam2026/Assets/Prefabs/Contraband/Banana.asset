@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ContrabandItem
   itemName: Banana
   value: 5
+  rarity: 1
   icon: {fileID: 0}
   modelPrefab: {fileID: 0}
