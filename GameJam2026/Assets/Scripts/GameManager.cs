@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private Vector2 cursorHotspot = new Vector2(16f, 16f);
 
     public GameObject SearchCompleteUI;
+    public InventoryBarManager inventoryBarManager;
 
     private PlayerInput playerInput;
     [SerializeField]

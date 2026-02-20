@@ -8,9 +8,10 @@ public class Inventory : MonoBehaviour
     public int InventorySize { get; set; } = 3;
     public List<ItemData> inventoryItems = new List<ItemData>();
     public ItemData selectedItem;
+    private InventoryBarManager inventoryBarManager;
     private int selectedItemIndex = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    void Start()
     {
         // Fill the inventory with null values to represent empty slots, so that we can easily check for empty slots later
         for (int i = 0; i < InventorySize; i++)
@@ -18,6 +19,8 @@ public class Inventory : MonoBehaviour
             inventoryItems.Add(null);
         }
         selectedItem = inventoryItems[selectedItemIndex];
+
+        inventoryBarManager = GameManager.Instance.inventoryBarManager;
     }
 
     // Update is called once per frame
@@ -34,6 +37,7 @@ public class Inventory : MonoBehaviour
             {
                 int index = inventoryItems.IndexOf(item);
                 inventoryItems[index] = itemToAdd;
+                inventoryBarManager.UpdateInventorySlot(index, itemToAdd);
                 selectedItem = inventoryItems[selectedItemIndex];
                 Debug.Log($"Added {itemToAdd.itemName} to inventory slot {index}");
                 return;
@@ -49,6 +53,7 @@ public class Inventory : MonoBehaviour
         else
             selectedItemIndex = 0;
         selectedItem = inventoryItems[selectedItemIndex];
+        inventoryBarManager.HighlightSelectedSlot(selectedItemIndex);
         Debug.Log($"Selected item: {(selectedItem != null ? selectedItem.itemName : "Empty Slot")}");
     }
 
@@ -59,6 +64,7 @@ public class Inventory : MonoBehaviour
         else
             selectedItemIndex = InventorySize-1;
         selectedItem = inventoryItems[selectedItemIndex];
+        inventoryBarManager.HighlightSelectedSlot(selectedItemIndex);
         Debug.Log($"Selected item: {(selectedItem != null ? selectedItem.itemName : "Empty Slot")}");
     }
 
