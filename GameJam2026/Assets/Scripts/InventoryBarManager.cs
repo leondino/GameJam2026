@@ -6,7 +6,7 @@ public class InventoryBarManager : MonoBehaviour
 {
     private const int SLOT_WIDTH = 46;
     private const int SLOT_OFFSET = 2;
-    private const int BACKGROUND_OFFSET = 3;
+    private const int BACKGROUND_OFFSET = 5;
     private int inventorySlots = 3;
     [SerializeField]
     private float highlightSizeFactor = 1.05f;
@@ -59,7 +59,9 @@ public class InventoryBarManager : MonoBehaviour
     public void UpdateInventoryBarSize()
     {
         inventorySlots = GameManager.Instance.player.GetComponent<Inventory>().InventorySize;
-        inventoryBarTransform.sizeDelta = new Vector2(SLOT_WIDTH * inventorySlots + BACKGROUND_OFFSET, inventoryBarTransform.sizeDelta.y);
+        //inventorySlots = 4; // For testing purposes, set inventory size to 4 to show how the inventory bar adjusts
+        var barLength = SLOT_WIDTH * inventorySlots + BACKGROUND_OFFSET;
+        inventoryBarTransform.sizeDelta = new Vector2(barLength, inventoryBarTransform.sizeDelta.y);
         while (inventorySlots > inventorySlotsList.Count)
         {
             GameObject newSLot = Instantiate(inventorySlotPrefab, transform, false);
@@ -68,7 +70,8 @@ public class InventoryBarManager : MonoBehaviour
         }
         foreach (GameObject slot in inventorySlotsList)
         {
-            slot.GetComponent<RectTransform>().anchoredPosition = new Vector2(SLOT_WIDTH * inventorySlotsList.IndexOf(slot) + SLOT_OFFSET, 0);
+            var slotPosition = SLOT_WIDTH * inventorySlotsList.IndexOf(slot) - (barLength)/2 + SLOT_WIDTH/2 + SLOT_OFFSET;
+            slot.GetComponent<RectTransform>().anchoredPosition = new Vector2(slotPosition, 0);
         }
     }
 
@@ -81,6 +84,7 @@ public class InventoryBarManager : MonoBehaviour
     /// <param name="slotIndex">The zero-based index of the inventory slot to highlight. Must be within the bounds of the inventory slots list.</param>
     public void HighlightSelectedSlot(int slotIndex)
     {
+        if (slotIndex < 0 || slotIndex >= inventorySlotsList.Count) return;
         if (highlightedSlot != null)
         {
             highlightedSlot.GetComponent<UnityEngine.UI.Image>().color = baseColor;
@@ -89,5 +93,8 @@ public class InventoryBarManager : MonoBehaviour
         highlightedSlot = inventorySlotsList[slotIndex];
         highlightedSlot.GetComponent<UnityEngine.UI.Image>().color = highlightColor;
         highlightedSlot.GetComponent<RectTransform>().sizeDelta *= highlightSizeFactor;
+        // Ensure the highlighted slot renders above the other slots by moving it
+        // to the end of the sibling list so it is drawn last (on top) in the UI.
+        highlightedSlot.transform.SetAsLastSibling();
     }
 }
