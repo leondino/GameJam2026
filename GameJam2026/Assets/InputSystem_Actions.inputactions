@@ -64,7 +64,7 @@
                     "name": "Previous",
                     "type": "Button",
                     "id": "2776c80d-3c14-4091-8c56-d04ced07a2b0",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -95,6 +95,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "InventoryScroll",
+                    "type": "Value",
+                    "id": "5e397baf-10a8-4447-8656-b3ec6984c5a4",
+                    "expectedControlType": "Axis",
+                    "processors": "Normalize(min=-1,max=1)",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -502,6 +511,17 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4262e94c-b923-4108-aa45-08fd58666d86",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "InventoryScroll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

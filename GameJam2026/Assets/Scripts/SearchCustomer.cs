@@ -54,6 +54,7 @@ public class SearchCustomer : MonoBehaviour
         foundContrabandUI.sprite = contraband.icon;
         foundContrabandUI.transform.parent.GetComponentInChildren<TMP_Text>().text = $"You found\n{contraband.itemName}";
         StartCoroutine(ShowFoundContraband());
+        GetComponent<Inventory>().AddItemToInventory(contraband);
     }
 
     private IEnumerator ShowFoundContraband()
