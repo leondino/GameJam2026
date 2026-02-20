@@ -451,6 +451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
   myContraband: {fileID: 0}
+  needsGlove: 0
 --- !u!1 &593892793317169531
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,6 +618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
   myContraband: {fileID: 0}
+  needsGlove: 0
 --- !u!1 &1418270141908920326
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,6 +863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
   myContraband: {fileID: 0}
+  needsGlove: 0
 --- !u!1 &1640396857985736255
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,6 +1581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
   myContraband: {fileID: 0}
+  needsGlove: 0
 --- !u!1 &2613660246876934512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,6 +1652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
   myContraband: {fileID: 0}
+  needsGlove: 0
 --- !u!1 &2689325782197910556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1823,6 +1828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
   myContraband: {fileID: 0}
+  needsGlove: 0
 --- !u!1 &3628943176046267541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1925,6 +1931,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
   myContraband: {fileID: 0}
+  needsGlove: 1
 --- !u!1 &3657310593511902457
 GameObject:
   m_ObjectHideFlags: 0
@@ -2189,6 +2196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
   myContraband: {fileID: 0}
+  needsGlove: 0
 --- !u!1 &5315808890551935785
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,6 +2299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
   myContraband: {fileID: 0}
+  needsGlove: 0
 --- !u!1 &5543626738094365929
 GameObject:
   m_ObjectHideFlags: 0
@@ -2488,6 +2497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
   myContraband: {fileID: 0}
+  needsGlove: 0
 --- !u!1 &5883078259640828268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2653,6 +2663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
   myContraband: {fileID: 0}
+  needsGlove: 0
 --- !u!1 &6180955141066094345
 GameObject:
   m_ObjectHideFlags: 0
@@ -2787,6 +2798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
   myContraband: {fileID: 0}
+  needsGlove: 0
 --- !u!1 &6442272388452478254
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,6 +2869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
   myContraband: {fileID: 0}
+  needsGlove: 0
 --- !u!1 &6486779210992803073
 GameObject:
   m_ObjectHideFlags: 0
@@ -3541,6 +3554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
   myContraband: {fileID: 0}
+  needsGlove: 1
 --- !u!1 &8008658154354567758
 GameObject:
   m_ObjectHideFlags: 0
@@ -3611,6 +3625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
   myContraband: {fileID: 0}
+  needsGlove: 1
 --- !u!1 &8258308389944451159
 GameObject:
   m_ObjectHideFlags: 0
@@ -4044,6 +4059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
   myContraband: {fileID: 0}
+  needsGlove: 0
 --- !u!1 &9050346667967805386
 GameObject:
   m_ObjectHideFlags: 0
@@ -4114,6 +4130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SearchablePart
   hasContraband: 0
   myContraband: {fileID: 0}
+  needsGlove: 0
 --- !u!1001 &4736123773462797623
 PrefabInstance:
   m_ObjectHideFlags: 0

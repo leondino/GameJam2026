@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   cursorDefault: {fileID: 2800000, guid: 381d755b170dd68428b826cd303052db, type: 3}
   SearchCompleteUI: {fileID: 0}
+  inventoryBarManager: {fileID: 0}
   player: {fileID: 0}
   activeNPCManager: {fileID: 0}
   gameplayActionMap: Player
@@ -66,10 +67,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966f9b3646264cc458ec96a82a3fc53c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  spawnInterval: 12
+  spawnInterval: 15
   spawnPoint: {fileID: 0}
   possibleCustomers:
-  - {fileID: 6909318593191939354, guid: 17d27e35cc021464bb799a09e0c9cbef, type: 3}
+  - {fileID: 3534233879608018549, guid: 3203da9a5848f964d9c9fea3b649d519, type: 3}
+  - {fileID: 5416099758200066713, guid: cb3eec0a007531a4dbcc093b1e3797f2, type: 3}
+  - {fileID: 4197259735287062541, guid: aa1db4c15d5163543bf16812dbd0061f, type: 3}
+  - {fileID: 6887560282125599121, guid: 52676bfb33029d24d9769b96bdd461bc, type: 3}
+  - {fileID: 8240447819203113592, guid: 95d3144e9a13b764b9644e868d51ca6b, type: 3}
 --- !u!114 &7838083045057135144
 MonoBehaviour:
   m_ObjectHideFlags: 0

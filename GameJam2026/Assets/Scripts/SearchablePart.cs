@@ -5,6 +5,7 @@ public class SearchablePart : Interactable
     [HideInInspector]
     public bool hasContraband = false;
     public ContrabandData myContraband;
+    public bool needsGlove = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,7 +23,7 @@ public class SearchablePart : Interactable
         GameObject player = GameManager.Instance.player;
         if (player.GetComponent<Inventory>().selectedItem != null)
         {
-            Debug.Log("You need a free hand to search!.");
+            GameManager.Instance.inventoryBarManager.ShowTooltip("You need a free hand to search!.");
             return;
         }
 

@@ -1,5 +1,7 @@
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class InventoryBarManager : MonoBehaviour
@@ -10,6 +12,8 @@ public class InventoryBarManager : MonoBehaviour
     private int inventorySlots = 3;
     [SerializeField]
     private float highlightSizeFactor = 1.05f;
+    [SerializeField]
+    private TMP_Text tooltip;
     [SerializeField]
     private Color highlightColor = Color.white;
     private Color baseColor;
@@ -96,5 +100,17 @@ public class InventoryBarManager : MonoBehaviour
         // Ensure the highlighted slot renders above the other slots by moving it
         // to the end of the sibling list so it is drawn last (on top) in the UI.
         highlightedSlot.transform.SetAsLastSibling();
+    }
+
+    public void ShowTooltip(string tooltipText)
+    {
+        tooltip.text = tooltipText;
+        StartCoroutine(HideTooltipAfterDelay());
+    }
+
+    private IEnumerator HideTooltipAfterDelay()
+    {
+        yield return new WaitForSeconds(3f);
+        tooltip.text = "";
     }
 }
