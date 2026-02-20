@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 917453356901210806}
   - component: {fileID: 7708719069736067567}
   - component: {fileID: 7359411875138798974}
+  - component: {fileID: 7838083045057135144}
   - component: {fileID: 1701832681961120801}
   - component: {fileID: 526533606073170969}
   m_Layer: 0
@@ -48,13 +49,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   cursorDefault: {fileID: 2800000, guid: 381d755b170dd68428b826cd303052db, type: 3}
-  cursorHand: {fileID: 2800000, guid: c5ae0ebe5b096ce4ca8e4c9c63833eb5, type: 3}
-  cursorHandPoint: {fileID: 2800000, guid: 3067baa1f5b4a76408bed985da1bdc27, type: 3}
-  cursorGlove: {fileID: 2800000, guid: 1e7a98fa720cd3f4fb962fe68f912259, type: 3}
-  cursorGlovePoint: {fileID: 2800000, guid: 3597277026b5f4541bb0abc169560644, type: 3}
-  cursorHotspot: {x: 16, y: 16}
+  SearchCompleteUI: {fileID: 0}
   player: {fileID: 0}
-  spawnInterval: 30
+  activeNPCManager: {fileID: 0}
   gameplayActionMap: Player
   menuActionMap: UI
 --- !u!114 &7359411875138798974
@@ -69,10 +66,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966f9b3646264cc458ec96a82a3fc53c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  spawnInterval: 30
+  spawnInterval: 12
+  spawnPoint: {fileID: 0}
   possibleCustomers:
   - {fileID: 6909318593191939354, guid: 17d27e35cc021464bb799a09e0c9cbef, type: 3}
-  spawnPoint: {fileID: 0}
+--- !u!114 &7838083045057135144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3708921405631436416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f54619f895a3a042930c2d0e96836d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  maxNPCs: 25
+  maxQueueLength: 5
+  firstWalkPoint: {fileID: 0}
+  searchPoint: {fileID: 0}
+  dancefloorEntryPoint: {fileID: 0}
+  dancefloorPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  queuePoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1701832681961120801
 MonoBehaviour:
   m_ObjectHideFlags: 0

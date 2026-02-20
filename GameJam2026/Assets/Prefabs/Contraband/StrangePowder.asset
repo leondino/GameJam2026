@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Strange Powder
   value: 30
   rarity: 3
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: dede1a9b94891004c87d5ccac5a021ff, type: 3}
   modelPrefab: {fileID: 0}

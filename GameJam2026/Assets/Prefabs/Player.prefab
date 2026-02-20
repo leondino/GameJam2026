@@ -306,6 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   currentCustomer: {fileID: 0}
+  foundContrabandUI: {fileID: 0}
 --- !u!114 &847526196873561965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,8 +326,9 @@ MonoBehaviour:
   fingerImage: {fileID: 21300000, guid: 3067baa1f5b4a76408bed985da1bdc27, type: 3}
   gloveImage: {fileID: 21300000, guid: 1e7a98fa720cd3f4fb962fe68f912259, type: 3}
   gloveFingerImage: {fileID: 21300000, guid: 3597277026b5f4541bb0abc169560644, type: 3}
-  interactImageSize: {x: 40, y: 40}
-  interactPopSize: {x: 50, y: 50}
+  canInteract: 1
+  interactImageSize: {x: 25, y: 25}
+  interactPopSize: {x: 32, y: 32}
 --- !u!54 &6553436561706056805
 Rigidbody:
   m_ObjectHideFlags: 0

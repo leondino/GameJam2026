@@ -19,7 +19,13 @@ public class SearchablePart : Interactable
     public override void Interact()
     {
         base.Interact();
-        if (hasContraband) {Debug.Log($"{myContraband.name} found in {name}!");}
+        if (hasContraband) 
+        {
+            GameManager.Instance.player.GetComponent<SearchCustomer>().FoundContraband(myContraband);
+            Debug.Log($"{myContraband.name} found in {name}!");
+            hasContraband = false;
+            myContraband = null;
+        }
         else {Debug.Log($"No contraband found in {name}."); }
     }
 }

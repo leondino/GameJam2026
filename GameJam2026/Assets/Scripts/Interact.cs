@@ -12,6 +12,8 @@ public class Interact : MonoBehaviour
     private float maxDistance = 1f;
     [SerializeField]
     private Sprite interactImage, baseImage, fingerImage, gloveImage, gloveFingerImage;
+    [HideInInspector]
+    public bool canInteract = true;
 
     private Interactable currentInteractable;
     [SerializeField]
@@ -24,6 +26,7 @@ public class Interact : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        canInteract = true;
         baseImage = interactCrosshair.sprite;
         // Cache the base rect size and provide a sensible default for the interact size
         baseSize = interactCrosshair.rectTransform.sizeDelta;
@@ -45,7 +48,7 @@ public class Interact : MonoBehaviour
         {
             var col = hit.collider; // exact collider hit
 
-            if (col.CompareTag("Interactable"))
+            if (col.CompareTag("Interactable") && canInteract)
             {
                 if (!interactImageActive)
                 {

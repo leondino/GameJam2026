@@ -1,9 +1,14 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class SearchCustomer : MonoBehaviour
 {
     public WalkObjective currentCustomer = null;
+    [SerializeField]
+    private Image foundContrabandUI;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -42,5 +47,21 @@ public class SearchCustomer : MonoBehaviour
             Debug.Log("Search Complete");
             GameManager.Instance.activeNPCManager.SendToDancefloor(currentCustomer);
         }
+    }
+
+    public void FoundContraband(ContrabandData contraband)
+    {
+        foundContrabandUI.sprite = contraband.icon;
+        foundContrabandUI.transform.parent.GetComponentInChildren<TMP_Text>().text = $"You found\n{contraband.itemName}";
+        StartCoroutine(ShowFoundContraband());
+    }
+
+    private IEnumerator ShowFoundContraband()
+    {
+        GetComponentInParent<Interact>().canInteract = false;
+        foundContrabandUI.transform.parent.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+        foundContrabandUI.transform.parent.gameObject.SetActive(false);
+        GetComponentInParent<Interact>().canInteract = true;
     }
 }

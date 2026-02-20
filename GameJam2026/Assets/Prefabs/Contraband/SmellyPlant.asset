@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Smelly Plant
   value: 15
   rarity: 2
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 87aebe668781b3545b7d14d9779ccb4e, type: 3}
   modelPrefab: {fileID: 0}
