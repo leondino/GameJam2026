@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d31609480ddebd47b4d80064e9f53dc, type: 3}
-  m_Name: StrangePowder
+  m_Script: {fileID: 11500000, guid: 4c8be4cbe349da145a6d9dd4b35be497, type: 3}
+  m_Name: Banana
   m_EditorClassIdentifier: Assembly-CSharp::ContrabandItem
-  itemName: Strange Powder
-  value: 30
-  rarity: 3
-  icon: {fileID: 21300000, guid: dede1a9b94891004c87d5ccac5a021ff, type: 3}
+  itemName: Banana
+  icon: {fileID: 21300000, guid: c9df5616c0c77f54d8f4c43d501557a7, type: 3}
   modelPrefab: {fileID: 0}
+  value: 1
+  rarity: 5
