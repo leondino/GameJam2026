@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Banana
   icon: {fileID: 21300000, guid: c9df5616c0c77f54d8f4c43d501557a7, type: 3}
   modelPrefab: {fileID: 0}
-  value: 1
-  rarity: 5
+  value: 5
+  rarity: 1

@@ -17,6 +17,7 @@ public class Inventory : MonoBehaviour
         {
             inventoryItems.Add(null);
         }
+        selectedItem = inventoryItems[selectedItemIndex];
     }
 
     // Update is called once per frame
@@ -33,6 +34,7 @@ public class Inventory : MonoBehaviour
             {
                 int index = inventoryItems.IndexOf(item);
                 inventoryItems[index] = itemToAdd;
+                selectedItem = inventoryItems[selectedItemIndex];
                 Debug.Log($"Added {itemToAdd.itemName} to inventory slot {index}");
                 return;
             }
@@ -79,7 +81,6 @@ public class Inventory : MonoBehaviour
     public void OnSelectWithScroll(InputAction.CallbackContext context)
     {
         float scrollValue = context.ReadValue<float>();
-        Debug.Log($"Scroll value: {scrollValue}");
         if (scrollValue > 0)
         {
             SelectNextItem();

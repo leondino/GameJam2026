@@ -19,9 +19,16 @@ public class SearchablePart : Interactable
     public override void Interact()
     {
         base.Interact();
+        GameObject player = GameManager.Instance.player;
+        if (player.GetComponent<Inventory>().selectedItem != null)
+        {
+            Debug.Log("You need a free hand to search!.");
+            return;
+        }
+
         if (hasContraband) 
         {
-            GameManager.Instance.player.GetComponent<SearchCustomer>().FoundContraband(myContraband);
+            player.GetComponent<SearchCustomer>().FoundContraband(myContraband);
             Debug.Log($"{myContraband.name} found in {name}!");
             hasContraband = false;
             myContraband = null;
