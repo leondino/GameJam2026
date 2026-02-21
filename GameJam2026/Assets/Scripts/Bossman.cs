@@ -7,6 +7,8 @@ public class Bossman : Interactable
     private float happiness = 100f;
     [SerializeField]
     private float happinessDecreaseRatePerMinute = 10f;
+    [SerializeField]
+    private HappinessBar happinessBar;
 
     /// <summary>
     /// Read-only access to current happiness value.
@@ -27,6 +29,7 @@ public class Bossman : Interactable
         {
             float decreasePerSecond = happinessDecreaseRatePerMinute / 60f;
             happiness -= decreasePerSecond * Time.fixedDeltaTime;
+            UpdateHappinessBar();
         }
         else
             //Game over TODO
@@ -43,11 +46,21 @@ public class Bossman : Interactable
     {
         Inventory playerInventory = GameManager.Instance.player.GetComponent<Inventory>();
         ContrabandData retrievedItem = (ContrabandData)playerInventory.selectedItem;
+        if (retrievedItem == null) return; // No item selected, do nothing
         playerInventory.RemoveSelectedItem();
         if (happiness < 100)
         {
             happiness += retrievedItem.value;
             happiness = Mathf.Clamp(happiness, 0f, 100f);
+            UpdateHappinessBar();
+        }
+    }
+
+    private void UpdateHappinessBar()
+    {
+        if (happinessBar != null)
+        {
+            happinessBar.SetHappiness(happiness);
         }
     }
 }
