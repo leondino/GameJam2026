@@ -46,6 +46,33 @@ public class Inventory : MonoBehaviour
         Debug.Log("Inventory is full! Cannot add item.");
     }
 
+    public void RemoveSelectedItem()
+    {
+        RemoveItemFromInventory(selectedItemIndex);
+    }
+
+    private void RemoveItemFromInventory(int index)
+    {
+        if (index >= 0 && index < InventorySize)
+        {
+            if (inventoryItems[index] != null)
+            {
+                Debug.Log($"Removed {inventoryItems[index].itemName} from inventory slot {index}");
+                inventoryItems[index] = null;
+                inventoryBarManager.UpdateInventorySlot(index, null);
+                selectedItem = inventoryItems[selectedItemIndex];
+            }
+            else
+            {
+                Debug.Log($"Inventory slot {index} is already empty.");
+            }
+        }
+        else
+        {
+            Debug.Log("Invalid inventory slot index.");
+        }
+    }
+
     private void SelectNextItem()
     {
         if (selectedItemIndex < InventorySize - 1)
