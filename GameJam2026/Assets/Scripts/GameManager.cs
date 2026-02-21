@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using TMPro;
 using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
@@ -37,6 +38,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TMP_Text gameStartText;
     [SerializeField]
+    private float gameStartFadeIn = 0.5f;
+    [SerializeField]
+    private float gameStartHold = 1.5f;
+    [SerializeField]
+    private float gameStartFadeOut = 0.5f;
+    [SerializeField]
     private GameObject gameOverScreen;
     [SerializeField]
     private TMP_Text scoreTimeText;
@@ -62,6 +69,8 @@ public class GameManager : MonoBehaviour
         // Lock cursor to middle of the screen and hide it at start
         SetCursor(CursorType.Hand);
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+
+        ShowGameStartSequence();
     }
 
     // Update is called once per frame
@@ -95,6 +104,62 @@ public class GameManager : MonoBehaviour
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
         // Optionally reset any timescale or persistent state here
         SceneManager.LoadScene(sceneIndex);
+    }
+
+    /// <summary>
+    /// Shows the game start text with a fade-in, hold, and fade-out sequence.
+    /// Call this to run the intro text animation.
+    /// </summary>
+    public void ShowGameStartSequence()
+    {
+        if (gameStartText == null) return;
+        // Ensure any running coroutine is stopped before starting a new one
+        StopCoroutine("GameStartRoutine");
+        StartCoroutine("GameStartRoutine");
+    }
+
+    /// <summary>
+    /// Initiates the game start sequence by displaying the start text with a fade-in effect, holding it visible for a
+    /// specified duration, and then fading it out before deactivating the text object.
+    /// </summary>
+    /// <remarks>The routine requires that the 'gameStartText' is not null. It manages the visibility and
+    /// transparency of the text over time, using the configured fade-in, hold, and fade-out durations. This method is
+    /// intended to be used with Unity's coroutine system.</remarks>
+    /// <returns>An enumerator that performs the game start sequence asynchronously. The routine completes when the start text
+    /// has been fully faded out and deactivated.</returns>
+    private IEnumerator GameStartRoutine()
+    {
+        if (gameStartText == null) yield break;
+
+        gameStartText.gameObject.SetActive(true);
+        Color c = gameStartText.color;
+        float t = 0f;
+
+        // Fade in
+        while (t < gameStartFadeIn)
+        {
+            t += Time.deltaTime;
+            float a = Mathf.Clamp01(t / Mathf.Max(0.0001f, gameStartFadeIn));
+            gameStartText.color = new Color(c.r, c.g, c.b, a);
+            yield return null;
+        }
+
+        // Hold
+        yield return new WaitForSeconds(gameStartHold);
+
+        // Fade out
+        t = 0f;
+        while (t < gameStartFadeOut)
+        {
+            t += Time.deltaTime;
+            float a = 1f - Mathf.Clamp01(t / Mathf.Max(0.0001f, gameStartFadeOut));
+            gameStartText.color = new Color(c.r, c.g, c.b, a);
+            yield return null;
+        }
+
+        // Ensure invisible at end
+        gameStartText.color = new Color(c.r, c.g, c.b, 0f);
+        gameStartText.gameObject.SetActive(false);
     }
 
     public void OnSwitchMenu(InputAction.CallbackContext context)
