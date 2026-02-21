@@ -1,11 +1,15 @@
 using NUnit.Framework;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    private float gameTimePast = 0f;
 
     [Header("Cursors")]
     [SerializeField]
@@ -28,6 +32,15 @@ public class GameManager : MonoBehaviour
     private string menuActionMap = "UI";
 
     private bool menuOpen = false;
+
+    [Header("GameStart / GameOver")]
+    [SerializeField]
+    private TMP_Text gameStartText;
+    [SerializeField]
+    private GameObject gameOverScreen;
+    [SerializeField]
+    private TMP_Text scoreTimeText;
+    private bool isGameOver = false;
 
     private void Awake()
     {
@@ -56,6 +69,7 @@ public class GameManager : MonoBehaviour
     {
         if (activeNPCManager.queueNPCs.Count < activeNPCManager.maxQueueLength)
             customerSpawner.SpawnCustomer();
+        gameTimePast += Time.fixedDeltaTime;
     }
 
     public void AddActiveNPC(GameObject npc)
@@ -63,40 +77,65 @@ public class GameManager : MonoBehaviour
         activeNPCManager.activeNPCs.Enqueue(npc);
     }
 
+    public void GameOver()
+    {
+        isGameOver = true;
+        gameOverScreen.SetActive(true);
+        // Format elapsed time as HH:MM:SS
+        int totalSeconds = Mathf.FloorToInt(gameTimePast);
+        int hours = totalSeconds / 3600;
+        int minutes = (totalSeconds % 3600) / 60;
+        int seconds = totalSeconds % 60;
+        scoreTimeText.text = string.Format("{0:D2}:{1:D2}:{2:D2}", hours, minutes, seconds);
+    }
+
+    public void RestartGame()
+    {
+        // Reload the currently active scene to restart the game
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        // Optionally reset any timescale or persistent state here
+        SceneManager.LoadScene(sceneIndex);
+    }
+
     public void OnSwitchMenu(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started &! isGameOver)
         {
-            // Toggle menu state
-            menuOpen = !menuOpen;
+            SwitchToMenuControls();
+        }
+    }
 
-            if (menuOpen)
+    private void SwitchToMenuControls()
+    {
+        // Toggle menu state
+        menuOpen = !menuOpen;
+
+        if (menuOpen)
+        {
+            // Switch to the menu/UI action map
+            if (playerInput != null)
             {
-                // Switch to the menu/UI action map
-                if (playerInput != null)
-                {
-                    playerInput.SwitchCurrentActionMap(menuActionMap);
+                playerInput.SwitchCurrentActionMap(menuActionMap);
 
-                    Debug.Log("A menu is opened");
-                }
-
-                SetCursor(CursorType.HandPoint);
-                UnityEngine.Cursor.lockState = CursorLockMode.None;
-                UnityEngine.Cursor.visible = true;
+                Debug.Log("A menu is opened");
             }
-            else
+
+            SetCursor(CursorType.HandPoint);
+            UnityEngine.Cursor.lockState = CursorLockMode.None;
+            UnityEngine.Cursor.visible = true;
+        }
+        else
+        {
+            // Switch back to gameplay map
+            if (playerInput != null)
             {
-                // Switch back to gameplay map
-                if (playerInput != null)
-                {
-                    playerInput.SwitchCurrentActionMap(gameplayActionMap);
-                    Debug.Log("A menu is closed");
-                }
-
-                UnityEngine.Cursor.lockState = CursorLockMode.Locked;
-                UnityEngine.Cursor.visible = false;
-
+                playerInput.SwitchCurrentActionMap(gameplayActionMap);
+                Debug.Log("A menu is closed");
             }
+
+            UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+            UnityEngine.Cursor.visible = false;
+
         }
     }
 
