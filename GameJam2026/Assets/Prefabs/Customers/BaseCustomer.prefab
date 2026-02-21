@@ -452,6 +452,8 @@ MonoBehaviour:
   hasContraband: 0
   myContraband: {fileID: 0}
   needsGlove: 0
+  searchedAudio: {fileID: 0}
+  foundContrabandAudio: {fileID: 0}
 --- !u!1 &593892793317169531
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,6 +621,8 @@ MonoBehaviour:
   hasContraband: 0
   myContraband: {fileID: 0}
   needsGlove: 0
+  searchedAudio: {fileID: 0}
+  foundContrabandAudio: {fileID: 0}
 --- !u!1 &1418270141908920326
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,6 +868,8 @@ MonoBehaviour:
   hasContraband: 0
   myContraband: {fileID: 0}
   needsGlove: 0
+  searchedAudio: {fileID: 0}
+  foundContrabandAudio: {fileID: 0}
 --- !u!1 &1640396857985736255
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,6 +1588,8 @@ MonoBehaviour:
   hasContraband: 0
   myContraband: {fileID: 0}
   needsGlove: 0
+  searchedAudio: {fileID: 0}
+  foundContrabandAudio: {fileID: 0}
 --- !u!1 &2613660246876934512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,6 +1661,8 @@ MonoBehaviour:
   hasContraband: 0
   myContraband: {fileID: 0}
   needsGlove: 0
+  searchedAudio: {fileID: 0}
+  foundContrabandAudio: {fileID: 0}
 --- !u!1 &2689325782197910556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,6 +1839,8 @@ MonoBehaviour:
   hasContraband: 0
   myContraband: {fileID: 0}
   needsGlove: 0
+  searchedAudio: {fileID: 0}
+  foundContrabandAudio: {fileID: 0}
 --- !u!1 &3628943176046267541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1932,6 +1944,8 @@ MonoBehaviour:
   hasContraband: 0
   myContraband: {fileID: 0}
   needsGlove: 1
+  searchedAudio: {fileID: 0}
+  foundContrabandAudio: {fileID: 0}
 --- !u!1 &3657310593511902457
 GameObject:
   m_ObjectHideFlags: 0
@@ -2197,6 +2211,8 @@ MonoBehaviour:
   hasContraband: 0
   myContraband: {fileID: 0}
   needsGlove: 0
+  searchedAudio: {fileID: 0}
+  foundContrabandAudio: {fileID: 0}
 --- !u!1 &5315808890551935785
 GameObject:
   m_ObjectHideFlags: 0
@@ -2300,6 +2316,8 @@ MonoBehaviour:
   hasContraband: 0
   myContraband: {fileID: 0}
   needsGlove: 0
+  searchedAudio: {fileID: 0}
+  foundContrabandAudio: {fileID: 0}
 --- !u!1 &5543626738094365929
 GameObject:
   m_ObjectHideFlags: 0
@@ -2498,6 +2516,8 @@ MonoBehaviour:
   hasContraband: 0
   myContraband: {fileID: 0}
   needsGlove: 0
+  searchedAudio: {fileID: 0}
+  foundContrabandAudio: {fileID: 0}
 --- !u!1 &5883078259640828268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2664,6 +2684,8 @@ MonoBehaviour:
   hasContraband: 0
   myContraband: {fileID: 0}
   needsGlove: 0
+  searchedAudio: {fileID: 0}
+  foundContrabandAudio: {fileID: 0}
 --- !u!1 &6180955141066094345
 GameObject:
   m_ObjectHideFlags: 0
@@ -2799,6 +2821,8 @@ MonoBehaviour:
   hasContraband: 0
   myContraband: {fileID: 0}
   needsGlove: 0
+  searchedAudio: {fileID: 0}
+  foundContrabandAudio: {fileID: 0}
 --- !u!1 &6442272388452478254
 GameObject:
   m_ObjectHideFlags: 0
@@ -2870,6 +2894,8 @@ MonoBehaviour:
   hasContraband: 0
   myContraband: {fileID: 0}
   needsGlove: 0
+  searchedAudio: {fileID: 0}
+  foundContrabandAudio: {fileID: 0}
 --- !u!1 &6486779210992803073
 GameObject:
   m_ObjectHideFlags: 0
@@ -3242,6 +3268,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 111daa903c3e5274e86907752bcb4dfe, type: 2}
   - {fileID: 11400000, guid: dad60616160d75f4ebe54ca64395fe94, type: 2}
   - {fileID: 11400000, guid: d2f694a7013fd4445b029aa31409958a, type: 2}
+  defaultTouchSound: {fileID: 8300000, guid: c7ac67a4bee5b504eb9c4e0a29a8167c, type: 3}
+  defaultCaughtSound: {fileID: 8300000, guid: d56557e0f360ed04ab0b98f7e109df83, type: 3}
 --- !u!54 &-436435057281771742
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3555,6 +3583,8 @@ MonoBehaviour:
   hasContraband: 0
   myContraband: {fileID: 0}
   needsGlove: 1
+  searchedAudio: {fileID: 0}
+  foundContrabandAudio: {fileID: 0}
 --- !u!1 &8008658154354567758
 GameObject:
   m_ObjectHideFlags: 0
@@ -3626,6 +3656,8 @@ MonoBehaviour:
   hasContraband: 0
   myContraband: {fileID: 0}
   needsGlove: 1
+  searchedAudio: {fileID: 0}
+  foundContrabandAudio: {fileID: 0}
 --- !u!1 &8258308389944451159
 GameObject:
   m_ObjectHideFlags: 0
@@ -4060,6 +4092,8 @@ MonoBehaviour:
   hasContraband: 0
   myContraband: {fileID: 0}
   needsGlove: 0
+  searchedAudio: {fileID: 0}
+  foundContrabandAudio: {fileID: 0}
 --- !u!1 &9050346667967805386
 GameObject:
   m_ObjectHideFlags: 0
@@ -4131,6 +4165,8 @@ MonoBehaviour:
   hasContraband: 0
   myContraband: {fileID: 0}
   needsGlove: 0
+  searchedAudio: {fileID: 0}
+  foundContrabandAudio: {fileID: 0}
 --- !u!1001 &4736123773462797623
 PrefabInstance:
   m_ObjectHideFlags: 0

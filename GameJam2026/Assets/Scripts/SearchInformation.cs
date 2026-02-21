@@ -18,6 +18,9 @@ public class SearchInformation : MonoBehaviour
     [SerializeField]
     private List<ContrabandData> possibleContrabandItems = new List<ContrabandData>();
 
+    [SerializeField]
+    private AudioClip defaultTouchSound, defaultCaughtSound;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,6 +41,11 @@ public class SearchInformation : MonoBehaviour
         foreach (var part in bodyParts)
         {
             part.gameObject.tag = "Interactable";
+            if (part.searchedAudio == null)
+            {
+                part.searchedAudio = defaultTouchSound;
+                part.foundContrabandAudio = defaultCaughtSound;
+            }
         }
 
         //Randomly assign contraband to body parts based on the contrabandChance and maxContrabandCount

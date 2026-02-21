@@ -9,6 +9,8 @@ public class Bossman : Interactable
     private float happinessDecreaseRatePerMinute = 10f;
     [SerializeField]
     private HappinessBar happinessBar;
+    [SerializeField]
+    private AudioClip bossmanThanksAudio; 
 
     /// <summary>
     /// Read-only access to current happiness value.
@@ -48,6 +50,7 @@ public class Bossman : Interactable
         ContrabandData retrievedItem = (ContrabandData)playerInventory.selectedItem;
         if (retrievedItem == null) return; // No item selected, do nothing
         playerInventory.RemoveSelectedItem();
+        GameManager.Instance.audioPlayManager.PlayAudioClip(bossmanThanksAudio);
         if (happiness < 100)
         {
             happiness += retrievedItem.value;

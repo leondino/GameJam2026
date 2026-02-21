@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     private CustomerSpawner customerSpawner;
     [HideInInspector]
     public ActiveNPCManager activeNPCManager;
+    [HideInInspector]
+    public AudioPlayManager audioPlayManager;
 
     [SerializeField]
     private string gameplayActionMap = "Player";
@@ -65,6 +67,7 @@ public class GameManager : MonoBehaviour
 
         customerSpawner = GetComponent<CustomerSpawner>();
         activeNPCManager = GetComponent<ActiveNPCManager>();
+        audioPlayManager = GetComponent<AudioPlayManager>();
 
         // Lock cursor to middle of the screen and hide it at start
         SetCursor(CursorType.Hand);

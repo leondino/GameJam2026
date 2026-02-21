@@ -78,6 +78,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 404129187010108138, guid: 95d3144e9a13b764b9644e868d51ca6b, type: 3}
+      propertyPath: defaultTouchSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5f47503cfb6200d4599ca6b64d17b472, type: 3}
+    - target: {fileID: 404129187010108138, guid: 95d3144e9a13b764b9644e868d51ca6b, type: 3}
+      propertyPath: defaultCaughtSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9067c1f8635112549844afcf5120cff8, type: 3}
     - target: {fileID: 3790352937127192032, guid: 95d3144e9a13b764b9644e868d51ca6b, type: 3}
       propertyPath: m_IsActive
       value: 0
