@@ -3202,7 +3202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecde41231e1924240a64c4c84565eddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  walkSpeed: 1
+  walkSpeed: 1.5
   queueComplete: 0
   goesDancing: 0
   dancefloorSpot: {fileID: 0}

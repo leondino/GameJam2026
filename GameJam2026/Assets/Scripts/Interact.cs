@@ -53,10 +53,12 @@ public class Interact : MonoBehaviour
                 if (!interactImageActive)
                 {
                     //TODO Fix this to check for gloves when that feeature is added and make it with less nested if statements.
-                    if (col.GetComponent<SearchablePart>().needsGlove)
-                        interactCrosshair.sprite = fingerImage;
-                    else
-                        interactCrosshair.sprite = interactImage;
+                    interactCrosshair.sprite = interactImage;
+                    if (col.GetComponent<SearchablePart>())
+                    {
+                        if (col.GetComponent<SearchablePart>().needsGlove)
+                            interactCrosshair.sprite = fingerImage;
+                    }
                     interactCrosshair.rectTransform.sizeDelta = interactImageSize;
                     interactImageActive = true;
                 }

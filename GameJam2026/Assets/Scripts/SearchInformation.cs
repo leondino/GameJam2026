@@ -42,6 +42,7 @@ public class SearchInformation : MonoBehaviour
 
         //Randomly assign contraband to body parts based on the contrabandChance and maxContrabandCount
         float randomValue = Random.value;
+        Debug.Log($"Generated random value: {randomValue}");
         while (randomValue < contrabandChance && currentContrabandCount < maxContrabandCount)
         {
             SearchablePart part = bodyParts[Random.Range(0, bodyParts.Count)];
@@ -49,9 +50,11 @@ public class SearchInformation : MonoBehaviour
             //Assign a random contraband item to the part, with a rarity that is less than or equal to a random max rarity (between 1 and 3)
             int maxRarity = Random.Range(1, 4);
             ContrabandData contraband = possibleContrabandItems[Random.Range(0, possibleContrabandItems.Count)];
-            while (contraband.rarity > maxRarity)
+            Debug.Log($"Tried generating {contraband.name} with max rarity {maxRarity}");
+            while (contraband.rarity > maxRarity) 
             {
                 contraband = possibleContrabandItems[Random.Range(0, possibleContrabandItems.Count)];
+                Debug.Log($"Tried generating {contraband.name}");
             }
             Debug.Log($"Assigned contraband {contraband.itemName} with rarity {contraband.rarity} to part {part.name}");
             part.myContraband = contraband;
