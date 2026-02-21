@@ -11,6 +11,15 @@ public class Bossman : Interactable
     private HappinessBar happinessBar;
     [SerializeField]
     private AudioClip bossmanThanksAudio; 
+    [SerializeField]
+    // How much the happiness-decrease rate itself increases per minute (difficulty scaling)
+    private float difficultyIncreaseRatePerMinute = 0.5f;
+    [SerializeField]
+    // Toggle difficulty scaling on/off
+    private bool enableDifficultyScaling = true;
+    [SerializeField]
+    // Optional cap for the per-minute decrease rate so it doesn't grow without bound
+    private float maxHappinessDecreaseRatePerMinute = 30f;
 
     /// <summary>
     /// Read-only access to current happiness value.
@@ -23,7 +32,7 @@ public class Bossman : Interactable
         
     }
 
-    // Update is called once per frame
+    // Update is called on a fixed timestep
     void FixedUpdate()
     {
         // Decrease happiness over time based on the per-minute rate.
@@ -32,10 +41,20 @@ public class Bossman : Interactable
             float decreasePerSecond = happinessDecreaseRatePerMinute / 60f;
             happiness -= decreasePerSecond * Time.fixedDeltaTime;
             UpdateHappinessBar();
+
+            // Increase the per-minute decrease rate over time to scale difficulty
+            if (enableDifficultyScaling && difficultyIncreaseRatePerMinute > 0f && happinessDecreaseRatePerMinute < maxHappinessDecreaseRatePerMinute)
+            {
+                float increasePerSecond = difficultyIncreaseRatePerMinute / 60f;
+                happinessDecreaseRatePerMinute += increasePerSecond * Time.fixedDeltaTime;
+                happinessDecreaseRatePerMinute = Mathf.Min(happinessDecreaseRatePerMinute, maxHappinessDecreaseRatePerMinute);
+            }
         }
         else
-            //Game over TODO
+        {
+            // Game over TODO
             Debug.Log("GAME OVER!!!");
+        }
     }
 
     public override void Interact()

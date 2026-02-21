@@ -70,8 +70,8 @@ public class Interact : MonoBehaviour
 
         // Nothing interactable hit
         interactImageActive = false;
-        interactCrosshair.sprite = baseImage;
         interactCrosshair.rectTransform.sizeDelta = baseSize;
+        interactCrosshair.sprite = baseImage;
         currentInteractable = null;
     }
 
