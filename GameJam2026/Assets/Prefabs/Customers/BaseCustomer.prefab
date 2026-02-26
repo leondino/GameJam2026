@@ -3245,7 +3245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   maxContrabandCount: 1
-  contrabandChance: 0.65
+  contrabandChance: 0.525
   bodyParts:
   - {fileID: 4263725796378757480}
   - {fileID: 6219568776275478764}

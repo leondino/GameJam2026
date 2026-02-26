@@ -91,20 +91,25 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        isGameOver = true;
-        gameOverScreen.SetActive(true);
-        // Format elapsed time as HH:MM:SS
-        int totalSeconds = Mathf.FloorToInt(gameTimePast);
-        int hours = totalSeconds / 3600;
-        int minutes = (totalSeconds % 3600) / 60;
-        int seconds = totalSeconds % 60;
-        scoreTimeText.text = string.Format("{0:D2}:{1:D2}:{2:D2}", hours, minutes, seconds);
+        if (!isGameOver)
+        {
+            SwitchToMenuControls();
+            isGameOver = true;
+            gameOverScreen.SetActive(true);
+            // Format elapsed time as HH:MM:SS
+            int totalSeconds = Mathf.FloorToInt(gameTimePast);
+            int hours = totalSeconds / 3600;
+            int minutes = (totalSeconds % 3600) / 60;
+            int seconds = totalSeconds % 60;
+            scoreTimeText.text = string.Format("{0:D2}:{1:D2}:{2:D2}", hours, minutes, seconds);
+        }
     }
 
     public void RestartGame()
     {
         // Reload the currently active scene to restart the game
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        Destroy(gameObject);
         // Optionally reset any timescale or persistent state here
         SceneManager.LoadScene(sceneIndex);
     }

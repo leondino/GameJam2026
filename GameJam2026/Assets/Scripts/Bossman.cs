@@ -53,6 +53,7 @@ public class Bossman : Interactable
         else
         {
             // Game over TODO
+            GameManager.Instance.GameOver();
             Debug.Log("GAME OVER!!!");
         }
     }
